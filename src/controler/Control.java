@@ -23,7 +23,9 @@ public class Control {
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
 		Actor brad=new Actor(null,acteurs,null,null,null,null,null);
 		acteur.add(brad);
-		Film nouv = new Film("id",ti,rea,acteur,null,dure,null,resum);
+		ArrayList<Genre>tipe=new ArrayList<Genre>();
+		tipe.add(genr);
+		Film nouv = new Film("id",ti,rea,acteur,tipe,dure,"resources/posters/unknownPoster.jpg",resum);
 		System.out.println(ti);
 		manager.ajfilm(nouv);
 		return nouv;
