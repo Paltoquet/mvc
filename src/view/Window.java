@@ -151,6 +151,7 @@ public class Window extends JFrame implements Observer {
 		model.clear();
 		for (i = 0; i < lis.size(); i++) {
 			liste.add(lis.get(i));
+			System.out.println(lis.get(0).getTitle());
 			model.addElement(lis.get(i).getTitle());
 		}
 		list = new JList(model);

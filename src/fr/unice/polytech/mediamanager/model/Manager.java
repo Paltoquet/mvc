@@ -27,6 +27,7 @@ public class Manager implements IManager,Observable {
      * Constructeur.
      */
     public Manager() {
+       list=new ArrayList<Film>();
         ef = new EngineFactory();
 		engine = ef.newInstance();
 		listObserver=new ArrayList<Observer>(); 
@@ -205,7 +206,7 @@ public class Manager implements IManager,Observable {
         return false;
     }
     public void getallfilm(){
-    	System.out.println(this.getAllFilms().get(1));
+    	//System.out.println(this.getAllFilms().get(1));
     	list.addAll(this.getAllFilms());
     	notifyObserver();
     	System.out.println(list);
