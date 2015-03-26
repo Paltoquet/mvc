@@ -174,9 +174,18 @@ public class Ajoutvue extends JFrame {
 				a = Integer.parseInt(textDuree.getText());
 			}
 			c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),a,textActeur.getText(),textRea.getText());
-			
-			//System.out.println("coucou");
+            //this.reset();
 		}
+
+        public void reset() {
+            textTitre.setText("");
+            textResum.setText("");
+            textActeur.setText("");
+            textRea.setText("");
+            textDuree.setText("");
+            textGenre.setText("");
+
+        }
 		/*
 		 * public static void main(String[] args) { new AjoutVue(); }
 		 */
