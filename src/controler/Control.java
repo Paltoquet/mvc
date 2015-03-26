@@ -45,4 +45,9 @@ public class Control {
 	public void getallfilm() {
 		manager.getallfilm();
 	}
+
+    public void rechercher(String film) {
+        manager.searchFilm(film);
+    }
+
 }

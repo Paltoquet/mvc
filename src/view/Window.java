@@ -157,5 +157,13 @@ public class Window extends JFrame implements Observer {
 		list = new JList(model);
 	}
 
+    public class SearchListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent arg0) {
+            control.rechercher(text.getText());
+        }
+
+    }
 
 }

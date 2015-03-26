@@ -242,4 +242,17 @@ public class Manager implements IManager,Observable {
 		}
 		notifyObserver();
 	}
+
+    public void searchFilm(String film) {
+        int listSize = list.size();
+        int i = 0;
+
+        for (i = 0; i <= listSize; i++) {
+            if(list.get(i).getTitle().equals(film)) {
+                //TODO
+                return;
+            }
+        }
+
+    }
 }
