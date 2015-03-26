@@ -18,6 +18,7 @@ public class Control {
 		vue.visible();
 	}
 
+
 	public Film retourfilm(String ti, Genre genr, String resum, int dure,String acteurs,String realisateur ) {
 		Director rea=new  Director(null,realisateur,null,null,null,null,null);
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
