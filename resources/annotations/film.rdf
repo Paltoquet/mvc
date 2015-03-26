@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://www.polytech.unice.fr/mediamanager/film.rdfs#" xmlns:mediamanager="http://www.polytech.unice.fr/mediamanager/film.rdfs#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xml:base="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances">
+  <Film rdf:ID="film1">
+    <hasTitle><![CDATA[Minority report]]></hasTitle>
+    <hasDirector rdf:resource="#people1" />
+    <hasActor rdf:resource="#people8" />
+    <hasActor rdf:resource="#people9" />
+    <hasActor rdf:resource="#people10" />
+    <hasGenre rdf:resource="#scifi" />
+    <hasRuntime>145</hasRuntime>
+    <hasPoster><![CDATA[resources/posters/minorityreport.jpg]]></hasPoster>
+    <hasSynopsis><![CDATA[In the future, criminals are caught before the crimes they commit, but one of the officers in the special unit is accused of one such crime and sets out to prove his innocence.]]></hasSynopsis>
+  </Film>
+  <Film rdf:ID="film2">
+    <hasTitle><![CDATA[Les aventuriers de l&#39;arche perdue]]></hasTitle>
+    <hasDirector rdf:resource="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances#people1" />
+    <hasActor rdf:resource="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances#people7" />
+    <hasActor rdf:resource="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances#people6" />
+    <hasActor rdf:resource="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances#people4" />
+    <hasGenre rdf:resource="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances#adventure" />
+    <hasRuntime>116</hasRuntime>
+    <hasPoster><![CDATA[resources/posters/indiana1.jpg]]></hasPoster>
+    <hasSynopsis><![CDATA[Archeologist and adventurer Indiana Jones is hired by the US government to find the Ark of the Covenant before the Nazis.]]></hasSynopsis>
+  </Film>
+</rdf:RDF>
+

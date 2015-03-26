@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf [
+   <!ENTITY rdfs     "http://www.w3.org/2000/01/rdf-schema">
+   <!ENTITY rdf     "http://www.w3.org/1999/02/22-rdf-syntax-ns">
+   <!ENTITY mediamanager     "http://www.polytech.unice.fr/mediamanager/film.rdfs">
+    ]>
+
+<rdf:RDF
+   xmlns:rdf ="&rdf;#"
+   xmlns:rdfs="&rdfs;#"
+   xmlns     ="&rdfs;#"
+   xml:base  ="&mediamanager;" >
+
+<Class rdf:ID="Film">
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</Class>
+
+<Class rdf:ID="People">
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</Class>
+
+<Class rdf:ID="Director">
+    <subClassOf rdf:resource="#People" />
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</Class>
+
+<Class rdf:ID="Actor">
+    <subClassOf rdf:resource="#People" />
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</Class>
+
+<Class rdf:ID="Genre">
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</Class>
+
+<Class rdf:ID="Nationality">
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</Class>
+
+<rdf:Property rdf:ID="hasTitle">
+<!--	<domain rdf:resource="#Film"/>  -->
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasDirector">
+	<domain rdf:resource="#Film"/>
+	<range rdf:resource="#Director"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasActor">
+	<domain rdf:resource="#Film"/>
+	<range rdf:resource="#Actor"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasGenre">
+<!--	<domain rdf:resource="#Film"/>  -->
+	<range rdf:resource="#Genre"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasRuntime">
+<!--	<domain rdf:resource="#Film"/>  -->
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasPoster">
+<!--	<domain rdf:resource="#Film"/>  -->
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasSynopsis">
+	<domain rdf:resource="#Film"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<!-- -->
+
+<rdf:Property rdf:ID="firstname">
+	<domain rdf:resource="#People"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="lastname">
+	<domain rdf:resource="#People"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="nationality">
+	<domain rdf:resource="#People"/>
+    <range rdf:resource="#Nationality" />
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="birth">
+	<domain rdf:resource="#People"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="death">
+	<domain rdf:resource="#People"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+<rdf:Property rdf:ID="photo">
+	<domain rdf:resource="#People"/>
+	<label xml:lang="en">null.</label>
+	<comment xml:lang="en">null.</comment>
+	<label xml:lang="fr">null.</label>
+	<comment xml:lang="fr">null.</comment>
+</rdf:Property>
+
+</rdf:RDF>

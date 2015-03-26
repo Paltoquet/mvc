@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf [
+   <!ENTITY mediamanager     "http://www.polytech.unice.fr/mediamanager/film.rdfs">
+    ]>
+
+<rdf:RDF xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns="http://www.polytech.unice.fr/mediamanager/film.rdfs#"
+		xmlns:mediamanager="http://www.polytech.unice.fr/mediamanager/film.rdfs#"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+		xml:base="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances">
+
+	<Director rdf:ID="people1">
+        <firstname>Steven</firstname>
+        <lastname>Spielberg</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1946</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/spielberg.jpg]]></photo>
+	</Director>
+
+	<Director rdf:ID="people2">
+        <firstname>George</firstname>
+        <lastname>Lucas</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1944</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/lucas.jpg]]></photo>
+	</Director>
+
+    <Actor rdf:ID="people3">
+        <firstname>Mark</firstname>
+        <lastname>Hamill</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1951</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/hamill.jpg]]></photo>
+	</Actor>
+
+    <Actor rdf:ID="people4">
+        <firstname>Harrison</firstname>
+        <lastname>Ford</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1942</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/ford.jpg]]></photo>
+	</Actor>
+
+    <Actor rdf:ID="people5">
+        <firstname>Carrie</firstname>
+        <lastname>Fisher</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1956</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/fisher.jpg]]></photo>
+	</Actor>
+
+    <Actor rdf:ID="people6">
+        <firstname>Karen</firstname>
+        <lastname>Allen</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1951</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/allen.jpg]]></photo>
+	</Actor>
+
+    <Actor rdf:ID="people7">
+        <firstname>Paul</firstname>
+        <lastname>Freeman</lastname>
+        <nationality rdf:resource="#british" />
+        <birth>1943</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/emptyPhoto.jpg]]></photo>
+	</Actor>
+
+    <Actor rdf:ID="people8">
+        <firstname>Tom</firstname>
+        <lastname>Cruise</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1962</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/cruise.jpg]]></photo>
+	</Actor>
+
+    <Actor rdf:ID="people9">
+        <firstname>Kathryn</firstname>
+        <lastname>Morris</lastname>
+        <nationality rdf:resource="#american" />
+        <birth>1969</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/morris.jpg]]></photo>
+	</Actor>
+
+    <Actor rdf:ID="people10">
+        <firstname>Collin</firstname>
+        <lastname>Farrel</lastname>
+        <nationality rdf:resource="#irish" />
+        <birth>1976</birth>
+        <death>0</death>
+        <photo><![CDATA[resources/photos/farrel.jpg]]></photo>
+	</Actor>
+
+</rdf:RDF>

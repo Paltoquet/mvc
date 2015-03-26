@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf [
+   <!ENTITY mediamanager     "http://www.polytech.unice.fr/mediamanager/film.rdfs">
+    ]>
+
+<rdf:RDF xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns="http://www.polytech.unice.fr/mediamanager/film.rdfs#"
+		xmlns:mediamanager="http://www.polytech.unice.fr/mediamanager/film.rdfs#"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+		xml:base="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances">
+
+	<Nationality rdf:ID="french">
+        <label xml:lang="en">French</label>
+        <label xml:lang="fr">Français</label>
+	</Nationality>
+
+	<Nationality rdf:ID="american">
+        <label xml:lang="en">American</label>
+        <label xml:lang="fr">Americain</label>
+	</Nationality>
+
+	<Nationality rdf:ID="australian">
+        <label xml:lang="en">Australian</label>
+        <label xml:lang="fr">Australien</label>
+	</Nationality>
+
+	<Nationality rdf:ID="italian">
+        <label xml:lang="en">Italian</label>
+        <label xml:lang="fr">Italien</label>
+	</Nationality>
+
+	<Nationality rdf:ID="british">
+        <label xml:lang="en">Britsh</label>
+        <label xml:lang="fr">Anglais</label>
+	</Nationality>
+
+	<Nationality rdf:ID="belgian">
+        <label xml:lang="en">Belgian</label>
+        <label xml:lang="fr">Belge</label>
+	</Nationality>
+
+	<Nationality rdf:ID="irish">
+        <label xml:lang="en">Irish</label>
+        <label xml:lang="fr">Irlandais</label>
+	</Nationality>
+
+    <Nationality rdf:ID="mexican">
+        <label xml:lang="en">Mexican</label>
+        <label xml:lang="fr">Mexicain</label>
+	</Nationality>
+
+    <Nationality rdf:ID="spanish">
+        <label xml:lang="en">Spanish</label>
+        <label xml:lang="fr">Espagnol</label>
+	</Nationality>
+
+</rdf:RDF>

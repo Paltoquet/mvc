@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf [
+   <!ENTITY mediamanager     "http://www.polytech.unice.fr/mediamanager/film.rdfs">
+    ]>
+
+<rdf:RDF xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns="http://www.polytech.unice.fr/mediamanager/film.rdfs#"
+		xmlns:mediamanager="http://www.polytech.unice.fr/mediamanager/film.rdfs#"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+		xml:base="http://www.polytech.unice.fr/mediamanager/film.rdfs-instances">
+
+    <Genre rdf:ID="action">
+        <label xml:lang="en">Action</label>
+        <label xml:lang="fr">Action</label>
+	</Genre>
+
+    <Genre rdf:ID="adventure">
+        <label xml:lang="en">Adventure</label>
+        <label xml:lang="fr">Aventure</label>
+	</Genre>
+
+    <Genre rdf:ID="animation">
+        <label xml:lang="en">Animation</label>
+        <label xml:lang="fr">Animation</label>
+	</Genre>
+
+    <Genre rdf:ID="biography">
+        <label xml:lang="en">Biography</label>
+        <label xml:lang="fr">Biographie</label>
+	</Genre>
+
+    <Genre rdf:ID="cartoon">
+        <label xml:lang="en">Cartoon</label>
+        <label xml:lang="fr">Dessin Anime</label>
+	</Genre>
+
+    <Genre rdf:ID="comedy">
+        <label xml:lang="en">Comedy</label>
+        <label xml:lang="fr">Comedie</label>
+	</Genre>
+
+    <Genre rdf:ID="crime">
+        <label xml:lang="en">Crime</label>
+        <label xml:lang="fr">Policier</label>
+	</Genre>
+
+    <Genre rdf:ID="documentary">
+        <label xml:lang="en">Documentary</label>
+        <label xml:lang="fr">Documentaire</label>
+	</Genre>
+
+    <Genre rdf:ID="drama">
+        <label xml:lang="en">Drama</label>
+        <label xml:lang="fr">Drame</label>
+	</Genre>
+
+    <Genre rdf:ID="family">
+        <label xml:lang="en">Family</label>
+        <label xml:lang="fr">Famille</label>
+	</Genre>
+
+    <Genre rdf:ID="fantasy">
+        <label xml:lang="en">Fantasy</label>
+        <label xml:lang="fr">Fantastique</label>
+	</Genre>
+
+    <Genre rdf:ID="history">
+        <label xml:lang="en">History</label>
+        <label xml:lang="fr">Historique</label>
+	</Genre>
+
+    <Genre rdf:ID="horror">
+        <label xml:lang="en">Horror</label>
+        <label xml:lang="fr">Horreur-Epouvante</label>
+	</Genre>
+
+    <Genre rdf:ID="musical">
+        <label xml:lang="en">Musical</label>
+        <label xml:lang="fr">Comedie Musicale</label>
+	</Genre>
+
+    <Genre rdf:ID="romance">
+        <label xml:lang="en">Romance</label>
+        <label xml:lang="fr">Romance</label>
+	</Genre>
+
+    <Genre rdf:ID="scifi">
+        <label xml:lang="en">Sci-Fi</label>
+        <label xml:lang="fr">Science fiction</label>
+	</Genre>
+
+    <Genre rdf:ID="thriller">
+        <label xml:lang="en">Thriller</label>
+        <label xml:lang="fr">Thriller</label>
+	</Genre>
+
+    <Genre rdf:ID="war">
+        <label xml:lang="en">War</label>
+        <label xml:lang="fr">Guerre</label>
+	</Genre>
+
+    <Genre rdf:ID="western">
+        <label xml:lang="en">Western</label>
+        <label xml:lang="fr">Western</label>
+	</Genre>
+
+</rdf:RDF>

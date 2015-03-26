@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="libraries">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libraries/CORESE_2009_16_04_v2_4_1_14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libraries/jdom.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
