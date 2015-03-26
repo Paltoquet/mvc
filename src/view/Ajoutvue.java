@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controler.Control;
+import fr.unice.polytech.mediamanager.model.Genre;
 
 public class Ajoutvue extends JFrame {
 
@@ -165,7 +166,14 @@ public class Ajoutvue extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			//System.out.println(textTitre.getText()+textResum.getText()+textGenre.getText());
 			frame.setVisible(false);
-			c.retourfilm(textTitre.getText(),textResum.getText(),textGenre.getText());
+			int a;
+			if(textDuree.getText()==""){
+				a=130;
+			}
+			else {
+				a = Integer.parseInt(textDuree.getText());
+			}
+			c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),a,textActeur.getText(),textRea.getText());
 			
 			//System.out.println("coucou");
 		}

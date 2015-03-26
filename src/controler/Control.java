@@ -1,9 +1,6 @@
 package controler;
 
-import fr.unice.polytech.mediamanager.model.Actor;
-import fr.unice.polytech.mediamanager.model.Director;
-import fr.unice.polytech.mediamanager.model.Film;
-import fr.unice.polytech.mediamanager.model.Manager;
+import fr.unice.polytech.mediamanager.model.*;
 import Ressource.Info;
 import view.Ajoutvue;
 
@@ -21,12 +18,12 @@ public class Control {
 		vue.visible();
 	}
 
-	public Film retourfilm(String ti, String genr, String resum, String dure,String acteurs,String realisateur ) {
+	public Film retourfilm(String ti, Genre genr, String resum, int dure,String acteurs,String realisateur ) {
 		Director rea=new  Director(null,realisateur,null,null,null,null,null);
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
 		Actor brad=new Actor(null,acteurs,null,null,null,null,null);
 		acteur.add(brad);
-		Film nouv = new Film("id",ti,rea,null,null,2,null,null);
+		Film nouv = new Film("id",ti,rea,acteur,null,dure,null,resum);
 		System.out.println(ti);
 		manager.ajfilm(nouv);
 		return nouv;
