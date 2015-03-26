@@ -17,32 +17,32 @@ import fr.inria.acacia.corese.exceptions.EngineException;
  * @version 05/06/2009
  */
 public class Manager implements IManager,Observable {
-	
-	public ArrayList<Film>list;
-	private ArrayList<Observer> listObserver;
+
+    public ArrayList<Film> list;
+    private ArrayList<Observer> listObserver;
     public EngineFactory ef;
-	public IEngine engine;
+    public IEngine engine;
 
     /**
      * Constructeur.
      */
     public Manager() {
-       list=new ArrayList<Film>();
+        list = new ArrayList<Film>();
         ef = new EngineFactory();
-		engine = ef.newInstance();
-		listObserver=new ArrayList<Observer>(); 
-		
-		try {
-			// load a single file (with a suffix .rdf .rdfs .owl .rul .xhtml, .nt or .nts)
-			engine.load("resources/schemas");
-			engine.load("resources/annotations");
-			// it is also possible to load a whole directory
+        engine = ef.newInstance();
+        listObserver = new ArrayList<Observer>();
+
+        try {
+            // load a single file (with a suffix .rdf .rdfs .owl .rul .xhtml, .nt or .nts)
+            engine.load("resources/schemas");
+            engine.load("resources/annotations");
+            // it is also possible to load a whole directory
 //		  	engine.load("path/to/the/directory/to/load");
-			// run rules
-		  	engine.runRuleEngine();
-		} catch (EngineException e) {
-			e.printStackTrace();
-		}
+            // run rules
+            engine.runRuleEngine();
+        } catch (EngineException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -53,17 +53,17 @@ public class Manager implements IManager,Observable {
         System.out.println("RELOAD CORESE ENGINE");
         engine = ef.newInstance();
 
-		try {
-			// load a single file (with a suffix .rdf .rdfs .owl .rul .xhtml, .nt or .nts)
-			engine.load("resources/schemas");
-			engine.load("resources/annotations");
-			// it is also possible to load a whole directory
+        try {
+            // load a single file (with a suffix .rdf .rdfs .owl .rul .xhtml, .nt or .nts)
+            engine.load("resources/schemas");
+            engine.load("resources/annotations");
+            // it is also possible to load a whole directory
 //		  	engine.load("path/to/the/directory/to/load");
-			// run rules
-		  	engine.runRuleEngine();
-		} catch (EngineException e) {
-			e.printStackTrace();
-		}
+            // run rules
+            engine.runRuleEngine();
+        } catch (EngineException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -83,7 +83,7 @@ public class Manager implements IManager,Observable {
     public ArrayList<Genre> getAllGenres() {
         Genre[] genresArray = Genre.values();
         ArrayList<Genre> genres = new ArrayList<Genre>();
-        for(Genre g: genresArray) {
+        for (Genre g : genresArray) {
             genres.add(g);
         }
         return genres;
@@ -116,7 +116,7 @@ public class Manager implements IManager,Observable {
     public ArrayList<Nationality> getAllNationalities() {
         Nationality[] nationalitiesArray = Nationality.values();
         ArrayList<Nationality> nationalities = new ArrayList<Nationality>();
-        for(Nationality n: nationalitiesArray) {
+        for (Nationality n : nationalitiesArray) {
             nationalities.add(n);
         }
         return nationalities;
@@ -171,7 +171,7 @@ public class Manager implements IManager,Observable {
      * @return true si le film a bien ete rajoute, false sinon
      */
     public boolean addFilm(Film film) {
-        if(Film.add(engine, film, false)) {
+        if (Film.add(engine, film, false)) {
             this.reloadEngine();
             return true;
         }
@@ -185,7 +185,7 @@ public class Manager implements IManager,Observable {
      * @return true si le film a bien ete supprime, false sinon.
      */
     public boolean deleteFilm(Film film) {
-        if(Film.delete(engine, film)) {
+        if (Film.delete(engine, film)) {
             this.reloadEngine();
             return true;
         }
@@ -199,60 +199,67 @@ public class Manager implements IManager,Observable {
      * @return true si le film a bien ete mis a jour, false sinon.
      */
     public boolean updateFilm(Film film) {
-        if(Film.update(engine, film)) {
+        if (Film.update(engine, film)) {
             this.reloadEngine();
             return true;
         }
         return false;
     }
-    public void getallfilm(){
-    	//System.out.println(this.getAllFilms().get(1));
-    	list.addAll(this.getAllFilms());
-    	notifyObserver();
-    	System.out.println(list);
+
+    public void getallfilm() {
+        //System.out.println(this.getAllFilms().get(1));
+        list.addAll(this.getAllFilms());
+        notifyObserver();
+        System.out.println(list);
     }
+
     @Override
-	public void notifyObserver() {
-		for(Observer obs : listObserver)
-		      obs.update(list);
-	}
-	public void addObserver(Observer obs) {
-	    this.listObserver.add(obs);
-	  }
+    public void notifyObserver() {
+        for (Observer obs : listObserver)
+            obs.update(list);
+    }
 
-	@Override
-	public void removeObserver() {
-		// TODO Auto-generated method stub
-		
-	}   
-	public void suppfilm(String str) {
-		int i;
-		for (i = 0; i < list.size(); i++) {
-			if (list.get(i).getTitle().equals(str)) {
-				list.remove(list.get(i));
-			}
+    public void addObserver(Observer obs) {
+        this.listObserver.add(obs);
+    }
 
-		}
-	}
-	public void ajfilm(Film nouv) {
-		System.out.println(list.size());
-		list.add(nouv);
-		for(Film i : list){
-			System.out.println(i.getTitle());
-		}
-		notifyObserver();
-	}
+    @Override
+    public void removeObserver() {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void suppfilm(String str) {
+        int i;
+        for (i = 0; i < list.size(); i++) {
+            if (list.get(i).getTitle().equals(str)) {
+                list.remove(list.get(i));
+            }
+
+        }
+    }
+
+    public void ajfilm(Film nouv) {
+        System.out.println(list.size());
+        list.add(nouv);
+        for (Film i : list) {
+            System.out.println(i.getTitle());
+        }
+        notifyObserver();
+    }
 
     public void searchFilm(String film) {
         int listSize = list.size();
         int i = 0;
 
-        for (i = 0; i <= listSize; i++) {
-            if(list.get(i).getTitle().equals(film)) {
-                //TODO
-                return;
+        for (i = 0; i < listSize; i++) {
+            if (list.get(i).getTitle().equals(film)) {
+                {
+                    for (Observer obs : listObserver)
+                        obs.update(list.get(i));
+                }
             }
-        }
 
+        }
     }
 }

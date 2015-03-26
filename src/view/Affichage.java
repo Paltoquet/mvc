@@ -18,13 +18,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import controler.Control;
+import fr.unice.polytech.mediamanager.model.Film;
 
 public class Affichage extends JFrame implements Observer {
     
     Control control;
     Info film;
     
-    public Affichage(Info film) {
+    public Affichage(Film film) {
         JFrame frame = new JFrame("Film");
 
         // Creation de la fenetre
@@ -80,16 +81,22 @@ public class Affichage extends JFrame implements Observer {
         JLabel genre = new JLabel("Genre :");
         JLabel resume = new JLabel("Résumé :");
         JLabel duree = new JLabel("Durée :");
-        
-        JLabel titrer = new JLabel("Heroes of the storm");
-        JLabel realisateursr = new JLabel("Jackson");
-        JLabel acteursr = new JLabel("Brad");
-        JLabel genrer = new JLabel("drame");
-        JLabel resumer = new JLabel("coucou");
-        JLabel dureer = new JLabel("2h30");
+
+        JLabel titrer = new JLabel(film.getTitle());
+        JLabel realisateursr = new JLabel(film.getDirector().getFirstname());
+        JLabel acteursr = new JLabel(film.getActors().get(0).getFirstname());
+        JLabel genrer = new JLabel(film.getGenres().get(0).getLabelFr());
+        JLabel resumer = new JLabel(film.getSynopsis());
+        JLabel dureer = new JLabel(String.valueOf(film.getRuntime()));
+//        JLabel titrer = new JLabel("Heroes of the storm");
+//        JLabel realisateursr = new JLabel("Jackson");
+//        JLabel acteursr = new JLabel("Brad");
+//        JLabel genrer = new JLabel("drame");
+//        JLabel resumer = new JLabel("coucou");
+//        JLabel dureer = new JLabel("2h30");
         
         //image
-        ImageIcon image = new ImageIcon("mugen.jpg");
+        ImageIcon image = new ImageIcon(film.getPoster());
         JLabel imageLabel = new JLabel(image);
         
         //Boutton

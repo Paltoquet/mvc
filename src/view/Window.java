@@ -54,7 +54,8 @@ public class Window extends JFrame implements Observer {
 		button.setPreferredSize(new Dimension(100, 40));
 		button2.setPreferredSize(new Dimension(100, 40));
 		button3.setPreferredSize(new Dimension(100, 40));
-		
+
+		button.addActionListener(new SearchListener());
 		button3.addActionListener(new ListListener());
 		button2.addActionListener(new SupListListener());
 
@@ -81,6 +82,12 @@ public class Window extends JFrame implements Observer {
 		this.setVisible(true);
 	}
 
+	public  class SearchListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			control.rechercher(text.getText());
+		}
+	}
 	public class ListListener implements ActionListener {
 
 		@Override
@@ -156,14 +163,7 @@ public class Window extends JFrame implements Observer {
 		}
 		list = new JList(model);
 	}
-
-    public class SearchListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent arg0) {
-            control.rechercher(text.getText());
-        }
-
-    }
-
+	public void update(Film film) {
+		Affichage affiche=new Affichage(film);
+	}
 }
