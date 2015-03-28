@@ -5,8 +5,6 @@ import interfac.Observer;
 
 import java.util.ArrayList;
 
-import Ressource.Info;
-
 import fr.inria.acacia.corese.api.*;
 import fr.inria.acacia.corese.exceptions.EngineException;
 
@@ -207,10 +205,8 @@ public class Manager implements IManager,Observable {
     }
 
     public void getallfilm() {
-        //System.out.println(this.getAllFilms().get(2));
         list.addAll(this.getAllFilms());
         notifyObserver();
-        //System.out.println(list);
     }
 
     @Override
@@ -230,15 +226,23 @@ public class Manager implements IManager,Observable {
     }
 
     /*
-    supprime le film de la liste
+    informe la vue du film à traiter
      */
     public void suppfilm(String str) {
         int i;
+        boolean isTrue = false;
         for (i = 0; i < list.size(); i++) {
             if (list.get(i).getTitle().equals(str)) {
                 list.remove(list.get(i));
+                isTrue = true;
             }
             notifyObserver();
+
+        }
+        //Cas ou le film n'existe pas
+        if(isTrue == false) {
+            for (Observer obs : listObserver)
+                obs.update(null, false);
         }
     }
 
@@ -246,18 +250,13 @@ public class Manager implements IManager,Observable {
     ajoute le film à la liste
      */
     public void ajfilm(Film nouv) {
-        //System.out.println(list.size());
         list.add(nouv);
-        //for (Film i : list) {
-        //System.out.println(i.getTitle());
-        //}
         notifyObserver();
     }
 
     /*
     informe la vue du film à traiter
      */
-
     public void modifFilm(String str) {
         for (Film i : list) {
             if (i.getTitle().equals(str)) {
@@ -267,10 +266,14 @@ public class Manager implements IManager,Observable {
                 }
             }
         }
+        //Cas ou le film n'existe pas
         for (Observer obs : listObserver)
             obs.update(null, false);
     }
 
+    /*
+    Informe la vue du film à traiter
+     */
     public void searchFilm(String film) {
         int listSize = list.size();
         int i = 0;
@@ -278,12 +281,17 @@ public class Manager implements IManager,Observable {
         for (i = 0; i < listSize; i++) {
             if (list.get(i).getTitle().equals(film)) {
                 {
-                    for (Observer obs : listObserver)
+                    for (Observer obs : listObserver) {
                         obs.update(list.get(i));
+                        return;
+                    }
                 }
             }
 
         }
+        //Cas ou le film n'existe pas
+        for (Observer obs : listObserver)
+            obs.update(null, false);
     }
 
     public void traiteFilm(String previous, Film film) {

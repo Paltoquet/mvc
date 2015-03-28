@@ -1,12 +1,15 @@
 package controler;
 
 import fr.unice.polytech.mediamanager.model.*;
-import Ressource.Info;
 import view.Ajoutvue;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * @Author Lucas Sauvage et Thibault Ober
+ * Gère les controles ( modèle MVC)
+ */
 public class Control {
 	public Manager manager;
 	public Ajoutvue vue;
@@ -127,7 +130,7 @@ public class Control {
         tipe.add(Genre.action);
 		Film nouv = new Film("id",ti,rea,acteur,tipe,a,"resources/posters/unknownPoster.jpg",resum);
 		manager.ajfilm(nouv);
-		return true;
+        return true;
 	}
 
 	//va voir si le film existe

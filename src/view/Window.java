@@ -3,24 +3,21 @@ package view;
 import fr.unice.polytech.mediamanager.model.Film;
 import fr.unice.polytech.mediamanager.model.Manager;
 import interfac.Observer;
-
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-
-import Ressource.Info;
 import controler.Control;
 
-
+/**
+ * @Author Lucas Sauvage et Thibault Ober
+ * Permet de gérer les différents films
+ */
 public class Window extends JFrame implements Observer {
 	JTextField text;
 	ArrayList<Film> liste;
@@ -30,9 +27,9 @@ public class Window extends JFrame implements Observer {
 	Control control;
 	private boolean haschanged;//utilisé lors de l'ajout dans la liste pour ne pas entrer en confrontation avec
 	//valuechanged de listSelectionLister
-    /**
-     * @Author Lucas Sauvage
-     * Permet de gérer les différents films
+
+    /*
+    Création de la fenetre
      */
 	public Window() {
 		model = new DefaultListModel();
@@ -43,8 +40,8 @@ public class Window extends JFrame implements Observer {
 		haschanged=false;
 		this.setLayout(new FlowLayout());
 		JButton button = new JButton("Search");
-		JButton button2 = new JButton("Suppr.");
-		JButton button3 = new JButton("Ajouter");
+		JButton button2 = new JButton("Delete");
+		JButton button3 = new JButton("Add");
 		JButton button4 = new JButton("Modify");
 		this.setSize(425, 400);
 		this.setLayout(new GridLayout(1, 2));
@@ -92,34 +89,19 @@ public class Window extends JFrame implements Observer {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
+    /*
+    Gère la recherche
+     */
 	public  class SearchListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-
-            //test si le film existe
-            int i = 0;
-            boolean Isin = false;
-			//cherche le film
-            while(i < liste.size() ){
-                if(text.getText().equals(liste.get(i).getTitle())) {
-                    Isin = true;
-                }
-                i++;
-            }
-            if(Isin == false) {
-                ajoutpopup("Ce film n'existe pas !");
-            }
-            else {
                 control.rechercher(text.getText());
-            }
-			// a faire si film non présent
 		}
 	}
 
-    public void ajoutpopup(String error) {
-        JOptionPane.showMessageDialog(this, error, "Erreur !", JOptionPane.ERROR_MESSAGE);
-    }
-
+    /*
+    Gère la modification
+     */
 	public class ModifListener implements ActionListener {
 
 		@Override
@@ -130,6 +112,10 @@ public class Window extends JFrame implements Observer {
 		}
 
 	}
+
+    /*
+    Gère l'ajout
+     */
 	public class ListListener implements ActionListener {
 
 		@Override
@@ -142,32 +128,26 @@ public class Window extends JFrame implements Observer {
 
 	}
 
+    /*
+    Gère la suppression
+     */
 	public class SupListListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-            //test si le film a supprimer existe
-            int i = 0;
-            boolean Isin = false;
-            while (i < liste.size()) {
-                if (text.getText().equals(liste.get(i).getTitle())) {
-                    Isin = true;
-                }
-                i++;
-            }
-            if (Isin == false) {
-                ajoutpopup("Ce film n'existe pas !");
-            } else if (!text.getText().equals("") && !model.isEmpty()) {
                 control.supprimerfilm(text.getText());
             }
-//				String nouv = text.getText();
-//				while (model.contains(nouv)) {
-//
-//					model.remove(model.indexOf(nouv));
-		}
 	}
 
-	public void initfilm(){
+    /*
+    Fenetre popup
+    */
+    public void ajoutpopup(String error) {
+        JOptionPane.showMessageDialog(this, error, "Erreur !", JOptionPane.ERROR_MESSAGE);
+    }
+
+
+    public void initfilm(){
 		control.getallfilm();
 	}
 
@@ -188,6 +168,9 @@ public class Window extends JFrame implements Observer {
 		fen.repaint();
 		vue.setController(cont);
 	}
+    /*
+    Gère les mise a jour de la fenetre
+     */
 	@Override
 	public void update(ArrayList<Film> lis) {
 		int i;

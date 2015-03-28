@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,8 +15,12 @@ import javax.swing.JTextField;
 
 import controler.Control;
 import fr.unice.polytech.mediamanager.model.Film;
-import fr.unice.polytech.mediamanager.model.Genre;
 
+
+/**
+ * @Author Lucas Sauvage et Thibault Ober
+ * Permet l'affichage de la fenetre d'ajout d'un film et modification d'un film
+ */
 public class Ajoutvue extends JFrame {
 
 	Control c;
@@ -39,6 +42,9 @@ public class Ajoutvue extends JFrame {
 	JFrame frame;
 	JButton addButton;
 
+    /*
+    Création de la fenetre
+     */
 	public Ajoutvue() {
 		modifmode=false;
 		frame = new JFrame("Film");
@@ -155,7 +161,10 @@ public class Ajoutvue extends JFrame {
 	public void visible(){
         frame.setVisible(true);
     }
-    
+
+    /*
+    Envois les informations lors du clique sur le bouton add
+     */
 	public class AjoutListenner implements ActionListener {
 
 		@Override
@@ -163,7 +172,7 @@ public class Ajoutvue extends JFrame {
 			Boolean isTrue;
 			if (modifmode == true) {
 				frame.setVisible(false);
-				isTrue = c.traiteModif(textTitre.getText(), textGenre.getText(), textResum.getText(), textDuree.getText(), textActeur.getText(), textRea.getText(), before);
+				c.traiteModif(textTitre.getText(), textGenre.getText(), textResum.getText(), textDuree.getText(), textActeur.getText(), textRea.getText(), before);
 				modifmode = false;
 				return;
 			}
@@ -175,7 +184,9 @@ public class Ajoutvue extends JFrame {
 			}
 		}
 	}
-
+        /*
+        remet les champs vide après un ajout réussi
+         */
         public void reset() {
             textTitre.setText("");
             textResum.setText("");

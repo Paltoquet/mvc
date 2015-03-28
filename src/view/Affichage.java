@@ -8,23 +8,24 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-import controler.Control;
 import fr.unice.polytech.mediamanager.model.Film;
 
+/**
+ * @Author Lucas Sauvage et Thibault Ober
+ * Permet l'affichage de la fiche d'un film
+ */
 public class Affichage extends JFrame implements Observer {
-    
-    Control control;
+
     Info film;
-    
+
+    /*
+    Création de la fenetre
+     */
     public Affichage(Film film) {
         JFrame frame = new JFrame("Film");
 
@@ -88,12 +89,6 @@ public class Affichage extends JFrame implements Observer {
         JLabel genrer = new JLabel(film.getGenres().get(0).getLabelFr());
         JLabel resumer = new JLabel(film.getSynopsis());
         JLabel dureer = new JLabel(String.valueOf(film.getRuntime()));
-//        JLabel titrer = new JLabel("Heroes of the storm");
-//        JLabel realisateursr = new JLabel("Jackson");
-//        JLabel acteursr = new JLabel("Brad");
-//        JLabel genrer = new JLabel("drame");
-//        JLabel resumer = new JLabel("coucou");
-//        JLabel dureer = new JLabel("2h30");
         
         //image
         ImageIcon image = new ImageIcon(film.getPoster());
@@ -122,19 +117,11 @@ public class Affichage extends JFrame implements Observer {
       
         frame.setVisible(true);
         }
-    
-    public void setControl(Control c) {
-        this.control = c;
-    }
-    
-    public void setInfo(Info film) {
-        this.film = film;
-    }
 
     @Override
     public void update(Observable arg0, Object arg1) {
-        
-        
+
+
     }
 
 }
