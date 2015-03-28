@@ -73,11 +73,18 @@ public class Window extends JFrame implements Observer {
 
 		this.add(listscroll);
 		this.add(grup);
-		list.addListSelectionListener(listSelectionListener);
+		list.addListSelectionListener(new ListSelectionListener(){
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				if (!arg0.getValueIsAdjusting()) {
+					System.out.println("coucou");
+					text.setText(list.getSelectedValue().toString());
+				}
+			}
+		});
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-
 	public  class SearchListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -162,6 +169,7 @@ public class Window extends JFrame implements Observer {
 	}
 	public void initfilm(){
 		control.getallfilm();
+		list.setSelectedIndex(0);
 	}
 
 	public void setControl(Control c) {
