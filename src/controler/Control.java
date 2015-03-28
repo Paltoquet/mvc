@@ -27,6 +27,13 @@ public class Control {
 			ajoutpopup("Veuillez rentrer une durée !");
 			return null;//new Film(null,null,null,null,null,0,null,null);
 		}
+		int a;
+		try{
+			a = Integer.parseInt(dure);
+		}
+		catch(Exception e){
+
+		}
         if(ti.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un titre !");
@@ -52,14 +59,13 @@ public class Control {
             ajoutpopup("Veuillez rentrer un réalisateur !");
             return null;
         }
-		int a = Integer.parseInt(dure);
 		Director rea=new  Director(null,realisateur,null,null,null,null,null);
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
 		Actor brad=new Actor(null,acteurs,null,null,null,null,null);
 		acteur.add(brad);
 		ArrayList<Genre>tipe=new ArrayList<Genre>();
         tipe.add(Genre.action);
-		Film nouv = new Film("id",ti,rea,acteur,tipe,a,"resources/posters/unknownPoster.jpg",resum);
+		Film nouv = new Film("id",ti,rea,acteur,tipe,8,"resources/posters/unknownPoster.jpg",resum);
 		System.out.println(ti);
 		manager.ajfilm(nouv);
 		return nouv;
@@ -87,7 +93,7 @@ public class Control {
     }
 
     public void ajoutpopup(String error) {
-        JOptionPane.showMessageDialog(vue,error,"Erreur !", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(vue, error, "Erreur !", JOptionPane.ERROR_MESSAGE);
     }
 
 }

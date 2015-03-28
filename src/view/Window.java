@@ -89,6 +89,7 @@ public class Window extends JFrame implements Observer {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			control.rechercher(text.getText());
+			// a faire si film non présent
 		}
 	}
 	public class ListListener implements ActionListener {
@@ -160,6 +161,7 @@ public class Window extends JFrame implements Observer {
 	@Override
 	public void update(ArrayList<Film> lis) {
 		int i;
+		liste.clear();
 		model.clear();
 		for (i = 0; i < lis.size(); i++) {
 			liste.add(lis.get(i));
