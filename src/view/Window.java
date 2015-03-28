@@ -75,10 +75,12 @@ public class Window extends JFrame implements Observer {
 		this.add(grup);
 		list.addListSelectionListener(new ListSelectionListener(){
 			@Override
-			public void valueChanged(ListSelectionEvent arg0) {
-				if (!arg0.getValueIsAdjusting()) {
-					System.out.println("coucou");
-					text.setText(list.getSelectedValue().toString());
+			public void valueChanged(ListSelectionEvent e) {
+				if (!e.getValueIsAdjusting()) {
+					JList source = (JList)e.getSource();
+					String selected = source.getSelectedValue().toString();
+					System.out.println(selected);
+					text.setText(selected);
 				}
 			}
 		});
@@ -169,7 +171,6 @@ public class Window extends JFrame implements Observer {
 	}
 	public void initfilm(){
 		control.getallfilm();
-		list.setSelectedIndex(0);
 	}
 
 	public void setControl(Control c) {
