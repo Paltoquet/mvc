@@ -19,14 +19,20 @@ public class Control {
 	}
 
 
-	public Film retourfilm(String ti, Genre genr, String resum, int dure,String acteurs,String realisateur ) {
+	public Film retourfilm(String ti, Genre genr, String resum, String dure,String acteurs,String realisateur ) {
+		if(dure.equals("")){
+			System.out.println("enculeeeeeeeee");
+			vue.visible();
+			return new Film(null,null,null,null,null,0,null,null);
+		}
+		int a = Integer.parseInt(dure);
 		Director rea=new  Director(null,realisateur,null,null,null,null,null);
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
 		Actor brad=new Actor(null,acteurs,null,null,null,null,null);
 		acteur.add(brad);
 		ArrayList<Genre>tipe=new ArrayList<Genre>();
 		tipe.add(genr);
-		Film nouv = new Film("id",ti,rea,acteur,tipe,dure,"resources/posters/unknownPoster.jpg",resum);
+		Film nouv = new Film("id",ti,rea,acteur,tipe,a,"resources/posters/unknownPoster.jpg",resum);
 		System.out.println(ti);
 		manager.ajfilm(nouv);
 		return nouv;

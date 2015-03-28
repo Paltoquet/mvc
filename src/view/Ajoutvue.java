@@ -167,13 +167,10 @@ public class Ajoutvue extends JFrame {
 			//System.out.println(textTitre.getText()+textResum.getText()+textGenre.getText());
 			frame.setVisible(false);
 			int a;
-			if(textDuree.getText()==""){
-				a=130;
-			}
-			else {
-				a = Integer.parseInt(textDuree.getText());
-			}
-			c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),a,textActeur.getText(),textRea.getText());
+//			if(textDuree.getText()==""){
+//				a=130;
+//			}
+			c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
             //this.reset();
 		}
 
