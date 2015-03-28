@@ -21,43 +21,45 @@ public class Control {
 	}
 
 
-	public Film retourfilm(String ti, String genr, String resum, String dure,String acteurs,String realisateur ) {
+	public void retourfilm(String ti, String genr, String resum, String dure,String acteurs,String realisateur ) {
+		int a=2;
 		if(dure.equals("")){
 			vue.visible();
 			ajoutpopup("Veuillez rentrer une durée !");
-			return null;//new Film(null,null,null,null,null,0,null,null);
+			return;
 		}
-		int a;
 		try{
-			a = Integer.parseInt(dure);
+			a=Integer.parseInt(dure);
 		}
-		catch(Exception e){
-
+		catch(NumberFormatException e){
+			vue.visible();
+			ajoutpopup("Mauvais format de durée, chiffre uniquement!");
+			return;
 		}
         if(ti.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un titre !");
-            return null;
+            return;
         }
         if(genr.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un genre !");
-            return null;
+            return;
         }
         if(resum.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer une résumé !");
-            return null;
+            return;
         }
         if(acteurs.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un acteur !");
-            return null;
+            return;
         }
         if(realisateur.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un réalisateur !");
-            return null;
+            return;
         }
 		Director rea=new  Director(null,realisateur,null,null,null,null,null);
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
@@ -65,10 +67,10 @@ public class Control {
 		acteur.add(brad);
 		ArrayList<Genre>tipe=new ArrayList<Genre>();
         tipe.add(Genre.action);
-		Film nouv = new Film("id",ti,rea,acteur,tipe,8,"resources/posters/unknownPoster.jpg",resum);
+		Film nouv = new Film("id",ti,rea,acteur,tipe,a,"resources/posters/unknownPoster.jpg",resum);
 		System.out.println(ti);
 		manager.ajfilm(nouv);
-		return nouv;
+		return;
 	}
 
 	public void supprimerfilm(String str) {
@@ -93,7 +95,7 @@ public class Control {
     }
 
     public void ajoutpopup(String error) {
-        JOptionPane.showMessageDialog(vue, error, "Erreur !", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(vue,error,"Erreur !", JOptionPane.ERROR_MESSAGE);
     }
 
 }
