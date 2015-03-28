@@ -228,6 +228,7 @@ public class Manager implements IManager,Observable {
         // TODO Auto-generated method stub
 
     }
+
     /*
     supprime le film de la liste
      */
@@ -240,6 +241,7 @@ public class Manager implements IManager,Observable {
             notifyObserver();
         }
     }
+
     /*
     ajoute le film à la liste
      */
@@ -247,7 +249,7 @@ public class Manager implements IManager,Observable {
         //System.out.println(list.size());
         list.add(nouv);
         //for (Film i : list) {
-            //System.out.println(i.getTitle());
+        //System.out.println(i.getTitle());
         //}
         notifyObserver();
     }
@@ -255,6 +257,20 @@ public class Manager implements IManager,Observable {
     /*
     informe la vue du film à traiter
      */
+
+    public void modifFilm(String str) {
+        for (Film i : list) {
+            if (i.getTitle().equals(str)) {
+                for (Observer obs : listObserver) {
+                    obs.update(i, true);
+                    return;
+                }
+            }
+        }
+        for (Observer obs : listObserver)
+            obs.update(null, false);
+    }
+
     public void searchFilm(String film) {
         int listSize = list.size();
         int i = 0;
@@ -268,5 +284,16 @@ public class Manager implements IManager,Observable {
             }
 
         }
+    }
+
+    public void traiteFilm(String previous, Film film) {
+        int i;
+        for (i = 0; i < list.size(); i++) {
+            if (list.get(i).getTitle().equals(previous)) {
+                list.remove(i);
+                list.add(film);
+            }
+        }
+        notifyObserver();
     }
 }

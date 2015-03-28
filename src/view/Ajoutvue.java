@@ -21,13 +21,14 @@ import fr.unice.polytech.mediamanager.model.Genre;
 public class Ajoutvue extends JFrame {
 
 	Control c;
-
+	Film before;
 	JLabel titre;
 	JLabel rea;
 	JLabel genre;
 	JLabel resum;
 	JLabel acteur;
 	JLabel duree;
+	Boolean modifmode;
 
 	JTextField textTitre;
 	JTextField textRea;
@@ -39,6 +40,7 @@ public class Ajoutvue extends JFrame {
 	JButton addButton;
 
 	public Ajoutvue() {
+		modifmode=false;
 		frame = new JFrame("Film");
 
 		titre = new JLabel("Titre");
@@ -158,14 +160,21 @@ public class Ajoutvue extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			Boolean isTrue;
+			if (modifmode == true) {
+				frame.setVisible(false);
+				isTrue = c.traiteModif(textTitre.getText(), textGenre.getText(), textResum.getText(), textDuree.getText(), textActeur.getText(), textRea.getText(), before);
+				modifmode = false;
+				return;
+			}
 			frame.setVisible(false);
-            Boolean isTrue;
-            isTrue = c.retourfilm(textTitre.getText(), textGenre.getText() ,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
-           //si l'ajout à marcher on réinitialise les fields
-            if(isTrue == true) {
-                this.reset();
-            }
-        }
+			isTrue = c.retourfilm(textTitre.getText(), textGenre.getText(), textResum.getText(), textDuree.getText(), textActeur.getText(), textRea.getText());
+			//si l'ajout à marcher on réinitialise les fields
+			if (isTrue == true) {
+				reset();
+			}
+		}
+	}
 
         public void reset() {
             textTitre.setText("");
@@ -176,5 +185,17 @@ public class Ajoutvue extends JFrame {
             textGenre.setText("");
 
         }
-	}
+		//openfilm ouvre le film tel qu il était, la vue est en mode modification et non en ajout
+		public void openFilm(Film i){
+			before=i;
+			textTitre.setText(i.getTitle());
+			textResum.setText(i.getSynopsis());
+			textActeur.setText(i.getActors().get(0).getFirstname());
+			textRea.setText(i.getDirector().getFirstname());
+			textDuree.setText(String.valueOf(i.getRuntime()));
+			textGenre.setText(i.getGenres().get(0).getLabelFr());
+			modifmode=true;
+
+		}
+
 }

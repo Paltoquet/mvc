@@ -45,6 +45,7 @@ public class Window extends JFrame implements Observer {
 		JButton button = new JButton("Search");
 		JButton button2 = new JButton("Suppr.");
 		JButton button3 = new JButton("Ajouter");
+		JButton button4 = new JButton("Modify");
 		this.setSize(425, 400);
 		this.setLayout(new GridLayout(1, 2));
 		text = new JTextField();
@@ -52,11 +53,12 @@ public class Window extends JFrame implements Observer {
 		button.setPreferredSize(new Dimension(100, 40));
 		button2.setPreferredSize(new Dimension(100, 40));
 		button3.setPreferredSize(new Dimension(100, 40));
+		button4.setPreferredSize(new Dimension(100, 40));
 
 		button.addActionListener(new SearchListener());
 		button3.addActionListener(new ListListener());
 		button2.addActionListener(new SupListListener());
-
+		button4.addActionListener(new ModifListener());
 		JPanel grup = new JPanel();
 		this.setLayout(new GridLayout(1, 2));
 
@@ -69,6 +71,7 @@ public class Window extends JFrame implements Observer {
 		grup2.add(button);
 		grup2.add(button2);
 		grup3.add(button3);
+		grup3.add(button4);
 		grup.add(text);
 		grup.add(grup2);
 		grup.add(grup3);
@@ -117,6 +120,16 @@ public class Window extends JFrame implements Observer {
         JOptionPane.showMessageDialog(this, error, "Erreur !", JOptionPane.ERROR_MESSAGE);
     }
 
+	public class ModifListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+
+			control.modifFilm(text.getText());
+
+		}
+
+	}
 	public class ListListener implements ActionListener {
 
 		@Override
@@ -191,7 +204,20 @@ public class Window extends JFrame implements Observer {
 	/*
 	une fois que le modèle a fait son choix la vue crée uen nouvelle fenêtre d'affichage
 	 */
+	@Override
 	public void update(Film film) {
 		Affichage affiche=new Affichage(film);
+	}
+	/*
+	Renvoie le film et si il existe ou pas
+	 */
+	@Override
+	public void update(Film film,boolean b){
+		if(!b){
+			ajoutpopup("Ce film n'existe pas !");
+		}
+		else{
+			control.lanceModif(film);
+		}
 	}
 }
