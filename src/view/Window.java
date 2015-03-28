@@ -123,15 +123,23 @@ public class Window extends JFrame implements Observer {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			if (!text.getText().equals("") && !model.isEmpty()) {
-
-				control.supprimerfilm(text.getText());
+            int i = 0;
+            boolean Isin = false;
+            while (i < liste.size()) {
+                if (text.getText().equals(liste.get(i).getTitle())) {
+                    Isin = true;
+                }
+                i++;
+            }
+            if (Isin == false) {
+                ajoutpopup("Ce film n'existe pas !");
+            } else if (!text.getText().equals("") && !model.isEmpty()) {
+                control.supprimerfilm(text.getText());
+            }
 //				String nouv = text.getText();
 //				while (model.contains(nouv)) {
-//					System.out.println("coucou");
+//
 //					model.remove(model.indexOf(nouv));
-//				}
-			}
 		}
 	}
 
