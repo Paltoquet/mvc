@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Control {
 	public Manager manager;
 	public Ajoutvue vue;
+    public Genre genre;
 
 	public void Control() {
 
@@ -20,7 +21,7 @@ public class Control {
 	}
 
 
-	public Film retourfilm(String ti, Genre genr, String resum, String dure,String acteurs,String realisateur ) {
+	public Film retourfilm(String ti, String genr, String resum, String dure,String acteurs,String realisateur ) {
 		if(dure.equals("")){
 			vue.visible();
 			ajoutpopup("Veuillez rentrer une durée !");
@@ -57,7 +58,7 @@ public class Control {
 		Actor brad=new Actor(null,acteurs,null,null,null,null,null);
 		acteur.add(brad);
 		ArrayList<Genre>tipe=new ArrayList<Genre>();
-		tipe.add(genr);
+        tipe.add(Genre.action);
 		Film nouv = new Film("id",ti,rea,acteur,tipe,a,"resources/posters/unknownPoster.jpg",resum);
 		System.out.println(ti);
 		manager.ajfilm(nouv);

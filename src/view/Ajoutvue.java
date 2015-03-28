@@ -172,7 +172,7 @@ public class Ajoutvue extends JFrame {
 //			if(textDuree.getText()==""){
 //				a=130;
 //			}
-            testIfNull = c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
+            testIfNull = c.retourfilm(textTitre.getText(), textGenre.getText() ,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
             //ne reset pas les champs si null, car poput erreur
             if (testIfNull != null) {
                 this.reset();
