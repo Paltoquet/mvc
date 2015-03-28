@@ -28,7 +28,7 @@ public class Window extends JFrame implements Observer {
 	JList list;
 	DefaultListModel model;
 	Control control;
-
+	private boolean haschanged;
     /**
      * @Author Lucas Sauvage
      * Permet de gérer les différents films
@@ -39,6 +39,7 @@ public class Window extends JFrame implements Observer {
 		list.setLayoutOrientation(JList.VERTICAL_WRAP);
 		JScrollPane listscroll = new JScrollPane(list);
 		liste = new ArrayList<Film>();
+		haschanged=false;
 		this.setLayout(new FlowLayout());
 		JButton button = new JButton("Search");
 		JButton button2 = new JButton("Suppr.");
@@ -76,7 +77,7 @@ public class Window extends JFrame implements Observer {
 		list.addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				if (!e.getValueIsAdjusting()) {
+				if (!e.getValueIsAdjusting()&&!haschanged) {
 					JList source = (JList)e.getSource();
 					String selected = source.getSelectedValue().toString();
 					System.out.println(selected);
@@ -193,6 +194,7 @@ public class Window extends JFrame implements Observer {
 	@Override
 	public void update(ArrayList<Film> lis) {
 		int i;
+		haschanged=true;
 		liste.clear();
 		model.clear();
 		for (i = 0; i < lis.size(); i++) {
@@ -200,6 +202,7 @@ public class Window extends JFrame implements Observer {
 			model.addElement(lis.get(i).getTitle());
 		}
 		list = new JList(model);
+		haschanged=false;
 	}
 	public void update(Film film) {
 		Affichage affiche=new Affichage(film);
