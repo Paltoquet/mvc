@@ -107,11 +107,12 @@ public class Window extends JFrame implements Observer {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			if (!text.getText().equals("") && !model.isEmpty()) {
-				String nouv = text.getText();
-				while (model.contains(nouv)) {
-					System.out.println("coucou");
-					model.remove(model.indexOf(nouv));
-				}
+				control.supprimerfilm(text.getText());
+//				String nouv = text.getText();
+//				while (model.contains(nouv)) {
+//					System.out.println("coucou");
+//					model.remove(model.indexOf(nouv));
+//				}
 			}
 		}
 	}

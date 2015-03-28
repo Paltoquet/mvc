@@ -235,7 +235,7 @@ public class Manager implements IManager,Observable {
             if (list.get(i).getTitle().equals(str)) {
                 list.remove(list.get(i));
             }
-
+            notifyObserver();
         }
     }
 
