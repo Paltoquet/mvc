@@ -68,7 +68,6 @@ public class Control {
 		ArrayList<Genre>tipe=new ArrayList<Genre>();
         tipe.add(Genre.action);
 		Film nouv = new Film("id",ti,rea,acteur,tipe,a,"resources/posters/unknownPoster.jpg",resum);
-		System.out.println(ti);
 		manager.ajfilm(nouv);
 		return true;
 	}

@@ -207,10 +207,10 @@ public class Manager implements IManager,Observable {
     }
 
     public void getallfilm() {
-        //System.out.println(this.getAllFilms().get(1));
+        //System.out.println(this.getAllFilms().get(2));
         list.addAll(this.getAllFilms());
         notifyObserver();
-        System.out.println(list);
+        //System.out.println(list);
     }
 
     @Override
@@ -240,11 +240,11 @@ public class Manager implements IManager,Observable {
     }
 
     public void ajfilm(Film nouv) {
-        System.out.println(list.size());
+        //System.out.println(list.size());
         list.add(nouv);
-        for (Film i : list) {
-            System.out.println(i.getTitle());
-        }
+        //for (Film i : list) {
+            //System.out.println(i.getTitle());
+        //}
         notifyObserver();
     }
 
