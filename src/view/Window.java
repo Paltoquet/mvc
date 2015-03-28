@@ -80,7 +80,6 @@ public class Window extends JFrame implements Observer {
 				if (!e.getValueIsAdjusting()&&!haschanged) {
 					JList source = (JList)e.getSource();
 					String selected = source.getSelectedValue().toString();
-					System.out.println(selected);
 					text.setText(selected);
 				}
 			}
