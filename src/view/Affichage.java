@@ -99,9 +99,6 @@ public class Affichage extends JFrame implements Observer {
         ImageIcon image = new ImageIcon(film.getPoster());
         JLabel imageLabel = new JLabel(image);
         
-        //Boutton
-        JButton button = new JButton("Film suivant");
-        
         //Placement dans la fenetre de la sous zone
         contentPane.add(pane);
         contentPane.add(pane2, BorderLayout.WEST);
@@ -121,7 +118,6 @@ public class Affichage extends JFrame implements Observer {
         label6.add(dureer);
         
         //ajout image
-        pane2.add(button, BorderLayout.SOUTH);
         pane2.add(imageLabel, BorderLayout.CENTER);
       
         frame.setVisible(true);

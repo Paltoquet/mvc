@@ -119,7 +119,8 @@ public class Window extends JFrame implements Observer {
 
 	ListSelectionListener listSelectionListener = new ListSelectionListener() {
 		public void valueChanged(ListSelectionEvent listSelectionEvent) {
-			Affichage affiche = new Affichage(null);
+            //TODO
+			//Affichage affiche = new Affichage(null);
 		}
 	};
 

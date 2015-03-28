@@ -188,8 +188,5 @@ public class Ajoutvue extends JFrame {
             textGenre.setText("");
 
         }
-		/*
-		 * public static void main(String[] args) { new AjoutVue(); }
-		 */
 	}
 }
