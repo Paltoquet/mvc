@@ -4,6 +4,7 @@ import fr.unice.polytech.mediamanager.model.*;
 import Ressource.Info;
 import view.Ajoutvue;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Control {
@@ -21,11 +22,35 @@ public class Control {
 
 	public Film retourfilm(String ti, Genre genr, String resum, String dure,String acteurs,String realisateur ) {
 		if(dure.equals("")){
-			System.out.println("enculeeeeeeeee");
 			vue.visible();
-			//vue.ajoutpopup()
-			return new Film(null,null,null,null,null,0,null,null);
+			ajoutpopup("Veuillez rentrer une durée !");
+			return null;//new Film(null,null,null,null,null,0,null,null);
 		}
+        if(ti.equals("")){
+            vue.visible();
+            ajoutpopup("Veuillez rentrer un titre !");
+            return null;
+        }
+        if(genr.equals("")){
+            vue.visible();
+            ajoutpopup("Veuillez rentrer un genre !");
+            return null;
+        }
+        if(resum.equals("")){
+            vue.visible();
+            ajoutpopup("Veuillez rentrer une résumé !");
+            return null;
+        }
+        if(acteurs.equals("")){
+            vue.visible();
+            ajoutpopup("Veuillez rentrer un acteur !");
+            return null;
+        }
+        if(realisateur.equals("")){
+            vue.visible();
+            ajoutpopup("Veuillez rentrer un réalisateur !");
+            return null;
+        }
 		int a = Integer.parseInt(dure);
 		Director rea=new  Director(null,realisateur,null,null,null,null,null);
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
@@ -58,6 +83,10 @@ public class Control {
 
     public void rechercher(String film) {
         manager.searchFilm(film);
+    }
+
+    public void ajoutpopup(String error) {
+        JOptionPane.showMessageDialog(vue,error,"Erreur !", JOptionPane.ERROR_MESSAGE);
     }
 
 }

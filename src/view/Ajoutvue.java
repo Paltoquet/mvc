@@ -171,7 +171,7 @@ public class Ajoutvue extends JFrame {
 //				a=130;
 //			}
 			c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
-            //this.reset();
+            this.reset();
 		}
 
         public void reset() {
