@@ -85,13 +85,6 @@ public class Ajoutvue extends JFrame {
 		contentPane.add(pane3, BorderLayout.SOUTH);
 		contentPane.add(pane4, BorderLayout.NORTH);
 
-		addButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO
-			}
-		});
-
 		pane.setLayout(new GridLayout(3, 1));
 		pane2.setLayout(new GridLayout(3, 1));
 		pane3.setLayout(new GridLayout(1, 3));
@@ -165,13 +158,8 @@ public class Ajoutvue extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			//System.out.println(textTitre.getText()+textResum.getText()+textGenre.getText());
 			frame.setVisible(false);
-			int a;
             Film testIfNull;
-//			if(textDuree.getText()==""){
-//				a=130;
-//			}
             testIfNull = c.retourfilm(textTitre.getText(), textGenre.getText() ,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
             //ne reset pas les champs si null, car poput erreur
             if (testIfNull != null) {

@@ -27,6 +27,7 @@ import javax.swing.event.ListSelectionListener;
 import Ressource.Info;
 import controler.Control;
 
+
 public class Window extends JFrame implements Observer {
 	JTextField text;
 	ArrayList<Film> liste;
@@ -35,6 +36,10 @@ public class Window extends JFrame implements Observer {
 	DefaultListModel model;
 	Control control;
 
+    /**
+     * @Author Lucas Sauvage
+     * Permet de gérer les différents films
+     */
 	public Window() {
 		model = new DefaultListModel();
 		list = new JList(model);
@@ -46,8 +51,6 @@ public class Window extends JFrame implements Observer {
 		JButton button2 = new JButton("Suppr.");
 		JButton button3 = new JButton("Ajouter");
 		this.setSize(425, 400);
-		// lb=new JLabel();
-		// lb.setPreferredSize(new Dimension(180,60));
 		this.setLayout(new GridLayout(1, 2));
 		text = new JTextField();
 		text.setPreferredSize(new Dimension(150, 100));
