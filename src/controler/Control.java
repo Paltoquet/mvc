@@ -21,12 +21,12 @@ public class Control {
 	}
 
 
-	public void retourfilm(String ti, String genr, String resum, String dure,String acteurs,String realisateur ) {
+	public boolean retourfilm(String ti, String genr, String resum, String dure,String acteurs,String realisateur ) {
 		int a=2;
 		if(dure.equals("")){
 			vue.visible();
 			ajoutpopup("Veuillez rentrer une durée !");
-			return;
+			return false;
 		}
 		try{
 			a=Integer.parseInt(dure);
@@ -34,32 +34,32 @@ public class Control {
 		catch(NumberFormatException e){
 			vue.visible();
 			ajoutpopup("Mauvais format de durée, chiffre uniquement!");
-			return;
+			return false;
 		}
         if(ti.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un titre !");
-            return;
+            return false;
         }
         if(genr.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un genre !");
-            return;
+            return false;
         }
         if(resum.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer une résumé !");
-            return;
+            return false;
         }
         if(acteurs.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un acteur !");
-            return;
+            return false;
         }
         if(realisateur.equals("")){
             vue.visible();
             ajoutpopup("Veuillez rentrer un réalisateur !");
-            return;
+            return false;
         }
 		Director rea=new  Director(null,realisateur,null,null,null,null,null);
 		ArrayList<Actor>acteur=new ArrayList<Actor>();
@@ -70,7 +70,7 @@ public class Control {
 		Film nouv = new Film("id",ti,rea,acteur,tipe,a,"resources/posters/unknownPoster.jpg",resum);
 		System.out.println(ti);
 		manager.ajfilm(nouv);
-		return;
+		return true;
 	}
 
 	public void supprimerfilm(String str) {

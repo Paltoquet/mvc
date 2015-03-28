@@ -159,9 +159,12 @@ public class Ajoutvue extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			frame.setVisible(false);
-            Film testIfNull;
-            c.retourfilm(textTitre.getText(), textGenre.getText() ,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
-		}
+            Boolean isTrue;
+            isTrue = c.retourfilm(textTitre.getText(), textGenre.getText() ,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
+            if(isTrue == true) {
+                this.reset();
+            }
+        }
 
         public void reset() {
             textTitre.setText("");
