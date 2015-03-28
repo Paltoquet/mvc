@@ -12,14 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -88,10 +81,30 @@ public class Window extends JFrame implements Observer {
 	public  class SearchListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			control.rechercher(text.getText());
+
+            //test si le film existe
+            int i = 0;
+            boolean Isin = false;
+            while(i < liste.size() ){
+                if(text.getText().equals(liste.get(i).getTitle())) {
+                    Isin = true;
+                }
+                i++;
+            }
+            if(Isin == false) {
+                ajoutpopup("Ce film n'existe pas !");
+            }
+            else {
+                control.rechercher(text.getText());
+            }
 			// a faire si film non présent
 		}
 	}
+
+    public void ajoutpopup(String error) {
+        JOptionPane.showMessageDialog(this, error, "Erreur !", JOptionPane.ERROR_MESSAGE);
+    }
+
 	public class ListListener implements ActionListener {
 
 		@Override
