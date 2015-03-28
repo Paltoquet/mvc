@@ -15,12 +15,16 @@ public class Control {
 	public void Control() {
 
 	}
-
+	/*
+	affiche le formulaire
+	 */
 	public void ajouterfilm() {
 		vue.visible();
 	}
 
-
+	/*
+	crée le film en fonction des informations et informe le modèle
+	 */
 	public boolean retourfilm(String ti, String genr, String resum, String dure,String acteurs,String realisateur ) {
 		int a=2;
 		if(dure.equals("")){

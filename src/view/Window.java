@@ -28,7 +28,8 @@ public class Window extends JFrame implements Observer {
 	JList list;
 	DefaultListModel model;
 	Control control;
-	private boolean haschanged;
+	private boolean haschanged;//utilisé lors de l'ajout dans la liste pour ne pas entrer en confrontation avec
+	//valuechanged de listSelectionLister
     /**
      * @Author Lucas Sauvage
      * Permet de gérer les différents films
@@ -75,12 +76,12 @@ public class Window extends JFrame implements Observer {
 		this.add(listscroll);
 		this.add(grup);
 		list.addListSelectionListener(new ListSelectionListener(){
+			//on affiche dans la text area notre selection
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting()&&!haschanged) {
 					JList source = (JList)e.getSource();
 					String selected = source.getSelectedValue().toString();
-					System.out.println(selected);
 					text.setText(selected);
 				}
 			}
@@ -95,6 +96,7 @@ public class Window extends JFrame implements Observer {
             //test si le film existe
             int i = 0;
             boolean Isin = false;
+			//cherche le film
             while(i < liste.size() ){
                 if(text.getText().equals(liste.get(i).getTitle())) {
                     Isin = true;
@@ -119,12 +121,10 @@ public class Window extends JFrame implements Observer {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			//if (!text.getText().equals("")) {
-				String nouv = text.getText();
+				//appelle le controleur
 				text.setText("");
 				control.ajouterfilm();
-			//}
-			//String mot = build(liste);
+
 		}
 
 	}
@@ -154,22 +154,6 @@ public class Window extends JFrame implements Observer {
 		}
 	}
 
-	ListSelectionListener listSelectionListener = new ListSelectionListener() {
-		public void valueChanged(ListSelectionEvent listSelectionEvent) {
-            //TODO
-			//Affichage affiche = new Affichage(null);
-		}
-	};
-
-	public String build(ArrayList<String> list) {
-		int k;
-		String mot = "";
-		for (k = 0; k < list.size(); k++) {
-			mot = mot + list.get(k);
-			mot = mot + ",";
-		}
-		return mot;
-	}
 	public void initfilm(){
 		control.getallfilm();
 	}
@@ -204,6 +188,9 @@ public class Window extends JFrame implements Observer {
 		list = new JList(model);
 		haschanged=false;
 	}
+	/*
+	une fois que le modèle a fait son choix la vue crée uen nouvelle fenêtre d'affichage
+	 */
 	public void update(Film film) {
 		Affichage affiche=new Affichage(film);
 	}

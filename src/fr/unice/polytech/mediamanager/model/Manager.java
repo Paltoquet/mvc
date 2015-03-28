@@ -18,7 +18,7 @@ import fr.inria.acacia.corese.exceptions.EngineException;
  */
 public class Manager implements IManager,Observable {
 
-    public ArrayList<Film> list;
+    public ArrayList<Film> list;//notre liste de film
     private ArrayList<Observer> listObserver;
     public EngineFactory ef;
     public IEngine engine;
@@ -228,7 +228,9 @@ public class Manager implements IManager,Observable {
         // TODO Auto-generated method stub
 
     }
-
+    /*
+    supprime le film de la liste
+     */
     public void suppfilm(String str) {
         int i;
         for (i = 0; i < list.size(); i++) {
@@ -238,7 +240,9 @@ public class Manager implements IManager,Observable {
             notifyObserver();
         }
     }
-
+    /*
+    ajoute le film à la liste
+     */
     public void ajfilm(Film nouv) {
         //System.out.println(list.size());
         list.add(nouv);
@@ -248,6 +252,9 @@ public class Manager implements IManager,Observable {
         notifyObserver();
     }
 
+    /*
+    informe la vue du film à traiter
+     */
     public void searchFilm(String film) {
         int listSize = list.size();
         int i = 0;

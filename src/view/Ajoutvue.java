@@ -161,6 +161,7 @@ public class Ajoutvue extends JFrame {
 			frame.setVisible(false);
             Boolean isTrue;
             isTrue = c.retourfilm(textTitre.getText(), textGenre.getText() ,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
+           //si l'ajout à marcher on réinitialise les fields
             if(isTrue == true) {
                 this.reset();
             }
