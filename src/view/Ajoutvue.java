@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controler.Control;
+import fr.unice.polytech.mediamanager.model.Film;
 import fr.unice.polytech.mediamanager.model.Genre;
 
 public class Ajoutvue extends JFrame {
@@ -167,11 +168,15 @@ public class Ajoutvue extends JFrame {
 			//System.out.println(textTitre.getText()+textResum.getText()+textGenre.getText());
 			frame.setVisible(false);
 			int a;
+            Film testIfNull;
 //			if(textDuree.getText()==""){
 //				a=130;
 //			}
-			c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
-            this.reset();
+            testIfNull = c.retourfilm(textTitre.getText(), Genre.action,textResum.getText(),textDuree.getText(),textActeur.getText(),textRea.getText());
+            //ne reset pas les champs si null, car poput erreur
+            if (testIfNull != null) {
+                this.reset();
+            }
 		}
 
         public void reset() {
