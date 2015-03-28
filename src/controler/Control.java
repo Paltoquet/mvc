@@ -23,6 +23,7 @@ public class Control {
 		if(dure.equals("")){
 			System.out.println("enculeeeeeeeee");
 			vue.visible();
+			//vue.ajoutpopup()
 			return new Film(null,null,null,null,null,0,null,null);
 		}
 		int a = Integer.parseInt(dure);
