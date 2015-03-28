@@ -53,6 +53,7 @@ public class Film {
      *
      * @return l'identifiant du film.
      */
+
     public String getId() {
         return this.id;
     }
@@ -66,6 +67,20 @@ public class Film {
         this.id = id;
     }
 
+    /*
+    Modifier la fiche du film
+     */
+    public void setFilm(Film i){
+        this.setTitle(i.getTitle());
+        this.setActors(i.getActors());
+        this.setDirector(i.getDirector());
+        this.setGenres(i.getGenres());
+        this.setId(i.getId());
+        this.setPoster(i.getPoster());
+        this.setRuntime(i.getRuntime());
+        this.setSynopsis(i.getSynopsis());
+
+    }
     /**
      * Permet de recuperer le titre du film.
      *

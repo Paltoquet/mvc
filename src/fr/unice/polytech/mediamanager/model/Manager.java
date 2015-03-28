@@ -290,8 +290,7 @@ public class Manager implements IManager,Observable {
         int i;
         for (i = 0; i < list.size(); i++) {
             if (list.get(i).getTitle().equals(previous)) {
-                list.remove(i);
-                list.add(film);
+                list.get(i).setFilm(film);
             }
         }
         notifyObserver();
