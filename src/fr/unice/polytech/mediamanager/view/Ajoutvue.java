@@ -172,8 +172,11 @@ public class Ajoutvue extends JFrame {
 			Boolean isTrue;
 			if (modifmode == true) {
 				frame.setVisible(false);
-				c.traiteModif(textTitre.getText(), textGenre.getText(), textResum.getText(), textDuree.getText(), textActeur.getText(), textRea.getText(), before);
+				isTrue=c.traiteModif(textTitre.getText(), textGenre.getText(), textResum.getText(), textDuree.getText(), textActeur.getText(), textRea.getText(), before);
 				modifmode = false;
+				if (isTrue == true) {
+					reset();
+				}
 				return;
 			}
 			frame.setVisible(false);

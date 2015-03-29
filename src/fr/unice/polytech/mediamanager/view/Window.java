@@ -154,20 +154,6 @@ public class Window extends JFrame implements Observer {
 	public void setControl(Control c) {
 		this.control = c;
 	}
-
-	public static void main(String[] args) {
-		Window fen = new Window();
-		Ajoutvue vue=new Ajoutvue();
-		Manager manag=new Manager();
-		Control cont = new Control();
-		manag.addObserver(fen);
-		cont.setManager(manag);
-		fen.setControl(cont);
-		cont.setView(vue);
-		fen.initfilm();
-		fen.repaint();
-		vue.setController(cont);
-	}
     /*
     Gère les mise a jour de la fenetre
      */
