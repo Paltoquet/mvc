@@ -1,7 +1,9 @@
-import controler.Control;
+
+import fr.unice.polytech.mediamanager.control.Control;
 import fr.unice.polytech.mediamanager.model.Manager;
-import view.Ajoutvue;
-import view.Window;
+import fr.unice.polytech.mediamanager.view.Ajoutvue;
+import fr.unice.polytech.mediamanager.view.Window;
+
 
 /**
  * Created by user on 29/03/2015.
