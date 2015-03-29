@@ -1,9 +1,5 @@
 package interfac;
 
-import java.util.ArrayList;
-
-import Ressource.Info;
-
 public interface Observable {
 	public void addObserver(Observer obs);
 

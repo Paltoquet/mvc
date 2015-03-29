@@ -1,4 +1,4 @@
-package view;
+package fr.unice.polytech.mediamanager.view;
 
 import fr.unice.polytech.mediamanager.model.Film;
 import fr.unice.polytech.mediamanager.model.Manager;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import controler.Control;
+import fr.unice.polytech.mediamanager.control.Control;
 
 /**
  * @Author Lucas Sauvage et Thibault Ober

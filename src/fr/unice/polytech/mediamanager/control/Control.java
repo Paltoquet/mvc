@@ -1,7 +1,7 @@
-package controler;
+package fr.unice.polytech.mediamanager.control;
 
 import fr.unice.polytech.mediamanager.model.*;
-import view.Ajoutvue;
+import fr.unice.polytech.mediamanager.view.Ajoutvue;
 
 import javax.swing.*;
 import java.util.ArrayList;

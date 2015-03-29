@@ -1,6 +1,6 @@
-package view;
+package fr.unice.polytech.mediamanager.view;
 
-import Ressource.Info;
+import fr.unice.polytech.mediamanager.model.Info;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;

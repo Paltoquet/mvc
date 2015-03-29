@@ -1,4 +1,4 @@
-package Ressource;
+package fr.unice.polytech.mediamanager.model;
 
 import java.awt.Component;
 
