@@ -30,6 +30,8 @@ public class Control {
 	 */
 	public boolean traiteModif(String ti, String genr, String resum, String dure,String acteurs,String realisateur,Film last){
 		int a=2;
+		vue.reset();
+
 		if(dure.equals("")){
 			vue.visible();
 			ajoutpopup("Veuillez rentrer une durée !");
