@@ -11,6 +11,7 @@ import fr.unice.polytech.mediamanager.view.Window;
 public class Main {
 
     public static void main(String[] args) {
+
         Window fen = new Window();
         Ajoutvue vue=new Ajoutvue();
         Manager manag=new Manager();
